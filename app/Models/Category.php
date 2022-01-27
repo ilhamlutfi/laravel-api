@@ -10,6 +10,16 @@ class Category extends Model
 {
     use HasFactory;
 
+    // select data yang perlu saja dari category
+    public function toArray()
+    {
+         return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'slug' => $this->slug
+         ];
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class);
